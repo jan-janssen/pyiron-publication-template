@@ -8,8 +8,8 @@ You can fork this repository and populate it with your own data.
 ### notebooks 
 The notebooks folder contains one or more jupyter notebooks. These notebooks are executed during the unit tests and included in the website for easy readablity. 
 
-### binder
-The binder folder includes the `environment.yml` file which defines the conda environment required to execute the notebooks in the `notebooks` folder. An existing environment can be exported using `conda env export > environment.yml` but it is recommended to reduce the environment to the minimal requirements as a large environment is less performant. 
+### conda environment 
+The conda environment is defined in the `environment.yml` file. It is used to execute the notebooks in the `notebooks` folder. An existing environment can be exported using `conda env export > environment.yml` but it is recommended to reduce the environment to the minimal requirements as a large environment is less performant. 
 
 ### calculation
 The `calculation` folder includes previous calculation results which are published with in this repository. In this example the calculation were created using:
@@ -32,7 +32,13 @@ Just like the pyiron resources folder this folder can include additional resourc
 The website for the repository is generated using jupyter book. It is configured with the config file `_config.yml` and in addition the table of contents is generated using the `_toc.yml` file. Finally additional images for the jupyterbook can be stored in `website/images`. In this case the `images` folder contains the dark pyiron logo `logo_dark.png`. The jupyterbook is build using the github action `.github/workflows/book.yml` and it is deployed to github pages using `.github/workflows/deploy.yml`. Both github actions internally use the conda environment defined in `.ci_support/environment.yml`. But there should be no need to modify these files, only the `_config.yml` and `_toc.yml` have to be adjusted by the user.
 
 ### mybinder
-Besides the conda environment in `binder/environment.yml` the `binder/postBuild` script is used to import the calculations stored in `calculation` and install `NGLview` for both jupyter notebooks and jupyter lab. Finally the pyiron environment on mybinder is configured using the `.pyiron` file in this repository.
+Besides the conda environment in `environment.yml` the `.binder/postBuild` script is used to import the calculations stored in `calculation` folder and install `NGLview` for both jupyter notebooks and jupyter lab. Finally the pyiron environment on mybinder is configured using the `.binder/.pyiron` file by copying it to the users home directory.
 
 ### continous integration 
-The rest of the files in the repository are used to test the environment. For continous integration the github actions are defined in `.github/workflows/notebooks.yml`. Again the mybinder environment `binder/environment.yml` to install all the dependencies, afterwards pyiron is configured in the test environment using `.ci_support/pyironconfig.py` and finally the notebooks are executed using `.ci_support/build_notebooks.sh`. Usually there is no need for the user to adjust any of these files other than the mybinder environment `binder/environment.yml`.
+The rest of the files in the repository are used to test the environment. For continous integration the github actions are defined in `.github/workflows/notebooks.yml`. Again the conda environment file `environment.yml` is used to install all the dependencies, afterwards pyiron is configured in the test environment using `.ci_support/pyironconfig.py` and finally the notebooks are executed using `.ci_support/build_notebooks.sh`. Usually there is no need for the user to adjust any of these files other than the conda environment `environment.yml`.
+
+## Step by step
+* Move your notebooks to the `notebooks` folder and remove the example notebook `notebooks/example.ipynb`.
+* Update the `environment.yml` file with the conda dependencies required for your notebook. 
+* Include the export of your pyiron database in the `calculation` folder or in case no calculation are required you can remove the `save.tar.gz` archive and the `export.csv` database backup file. 
+* Include additional pyiron resources in the `resources` folder if required, otherwise the `resources folder can be deleted.
