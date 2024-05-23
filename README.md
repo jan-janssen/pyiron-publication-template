@@ -18,7 +18,7 @@ The repository folder contains one or more jupyter notebooks. These notebooks ar
 ### conda environment
 The repository folder also includes the conda `environment.yml` file which defines the conda environment required to execute the notebooks in the repository folder. An existing environment can be exported using `conda env export > environment.yml` but it is recommended to reduce the environment to the minimal requirements as a large environment is less performant. Example conda `environment.yml` file: 
 
-```
+```python
 channels:
 - conda-forge
 dependencies:
@@ -51,8 +51,8 @@ The jupyterbook is build using the github action `.github/workflows/book.yml` an
 ### mybinder
 Besides the conda environment in `environment.yml` the `.binder/postBuild` script is used to import the calculations stored in `pyiron/calculation` and install `NGLview` for both jupyter notebooks and jupyter lab. Finally the pyiron environment on mybinder is configured using the `.binder/.pyiron` file in this repository. Only the conda environment file `environment.yml` has to be updated by the user.
 
-### Continous integration 
-The rest of the files in the repository are used to test the environment. For continous integration the github actions are defined in `.github/workflows/notebooks.yml`. Again the conda environment file `environment.yml` is used to install all the dependencies, afterwards pyiron is configured in the test environment using `.github/ci_support/pyironconfig.py` and finally the notebooks are executed using `.github/ci_support/build_notebooks.sh`. Usually there is no need for the user to adjust any of these files other than the conda environment `environment.yml` file.
+### Continuous integration 
+The rest of the files in the repository are used to test the environment. For continuous integration the github actions are defined in `.github/workflows/notebooks.yml`. Again the conda environment file `environment.yml` is used to install all the dependencies, afterwards pyiron is configured in the test environment using `.github/ci_support/pyironconfig.py` and finally the notebooks are executed using `.github/ci_support/build_notebooks.sh`. Usually there is no need for the user to adjust any of these files other than the conda environment `environment.yml` file.
 
 ### License
 pyiron and also the pyiron publication template are licensed under the BSD-3-Clause license which is included in the `LICENSE` file. In addition an `CODE_OF_CONDUCT.md` file is included to foster an open and welcoming environment.
