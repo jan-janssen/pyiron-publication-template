@@ -335,7 +335,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-pyiron-resources">Additional pyiron resources</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterbook">Jupyterbook</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mybinder">mybinder</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continous-integration">Continous integration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-integration">Continuous integration</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#license">License</a></li>
 </ul>
 </li>
@@ -373,7 +373,7 @@ document.write(`
 <section id="conda-environment">
 <h3>conda environment<a class="headerlink" href="#conda-environment" title="Link to this heading">#</a></h3>
 <p>The repository folder also includes the conda <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file which defines the conda environment required to execute the notebooks in the repository folder. An existing environment can be exported using <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">export</span> <span class="pre">&gt;</span> <span class="pre">environment.yml</span></code> but it is recommended to reduce the environment to the minimal requirements as a large environment is less performant. Example conda <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">channels</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">channels</span><span class="p">:</span>
 <span class="o">-</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
 <span class="n">dependencies</span><span class="p">:</span>
 <span class="o">-</span> <span class="n">python</span>
@@ -408,9 +408,9 @@ document.write(`
 <h3>mybinder<a class="headerlink" href="#mybinder" title="Link to this heading">#</a></h3>
 <p>Besides the conda environment in <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> the <code class="docutils literal notranslate"><span class="pre">.binder/postBuild</span></code> script is used to import the calculations stored in <code class="docutils literal notranslate"><span class="pre">pyiron/calculation</span></code> and install <code class="docutils literal notranslate"><span class="pre">NGLview</span></code> for both jupyter notebooks and jupyter lab. Finally the pyiron environment on mybinder is configured using the <code class="docutils literal notranslate"><span class="pre">.binder/.pyiron</span></code> file in this repository. Only the conda environment file <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> has to be updated by the user.</p>
 </section>
-<section id="continous-integration">
-<h3>Continous integration<a class="headerlink" href="#continous-integration" title="Link to this heading">#</a></h3>
-<p>The rest of the files in the repository are used to test the environment. For continous integration the github actions are defined in <code class="docutils literal notranslate"><span class="pre">.github/workflows/notebooks.yml</span></code>. Again the conda environment file <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> is used to install all the dependencies, afterwards pyiron is configured in the test environment using <code class="docutils literal notranslate"><span class="pre">.github/ci_support/pyironconfig.py</span></code> and finally the notebooks are executed using <code class="docutils literal notranslate"><span class="pre">.github/ci_support/build_notebooks.sh</span></code>. Usually there is no need for the user to adjust any of these files other than the conda environment <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file.</p>
+<section id="continuous-integration">
+<h3>Continuous integration<a class="headerlink" href="#continuous-integration" title="Link to this heading">#</a></h3>
+<p>The rest of the files in the repository are used to test the environment. For continuous integration the github actions are defined in <code class="docutils literal notranslate"><span class="pre">.github/workflows/notebooks.yml</span></code>. Again the conda environment file <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> is used to install all the dependencies, afterwards pyiron is configured in the test environment using <code class="docutils literal notranslate"><span class="pre">.github/ci_support/pyironconfig.py</span></code> and finally the notebooks are executed using <code class="docutils literal notranslate"><span class="pre">.github/ci_support/build_notebooks.sh</span></code>. Usually there is no need for the user to adjust any of these files other than the conda environment <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file.</p>
 </section>
 <section id="license">
 <h3>License<a class="headerlink" href="#license" title="Link to this heading">#</a></h3>
@@ -484,7 +484,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-pyiron-resources">Additional pyiron resources</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterbook">Jupyterbook</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mybinder">mybinder</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continous-integration">Continous integration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-integration">Continuous integration</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#license">License</a></li>
 </ul>
 </li>
